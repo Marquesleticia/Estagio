@@ -2,15 +2,15 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 from bll.gerenciador_estoque import GerenciadorDeEstoque
 from ui.dialogs import MaterialDialog
-from PIL import Image, ImageTk # Importar para lidar com imagens
+from PIL import Image, ImageTk 
+
 
 CATEGORIAS_FIXAS = [
     "Copa e Consumo",
     "Papelaria / Escritório",
     "Higiene e Limpeza"
-]
 
-# Paleta de cores (ajustes sutis para um visual mais moderno)
+]
 BG_COLOR = "#F0F2F5"          # Fundo cinza muito claro (quase branco)
 BTN_PRIMARY = "#1E70E0"       # Azul mais vibrante
 BTN_REMOVE = "#DC3545"        # Vermelho mais padrão
@@ -25,7 +25,10 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Gerenciamento de Estoque")
-        self.geometry("900x700") # Aumentar um pouco o tamanho da janela
+        self.geometry("1050x800") 
+
+        self.iconbitmap("controle_materiais/ui/logo.ico")
+        
         self.configure(bg=BG_COLOR)
         self.gerenciador = GerenciadorDeEstoque()
         self.create_styles()
@@ -36,7 +39,7 @@ class App(tk.Tk):
         style = ttk.Style(self)
         style.theme_use("default")
 
-        # Estilo Treeview
+       
         style.configure("Treeview",
                         background=BG_COLOR,
                         foreground=TEXT_COLOR,
@@ -49,15 +52,15 @@ class App(tk.Tk):
                         background=HEADER_BG,
                         foreground=HEADER_FG,
                         font=(FONT_FAMILY, 12, "bold"),
-                        padding=[5, 10]) # Adicionar padding ao cabeçalho
+                        padding=[5, 10]) 
 
-        # Linhas alternadas
+       
         self.tree_tag_odd = 'oddrow'
         self.tree_tag_even = 'evenrow'
         style.configure(self.tree_tag_odd, background=BG_COLOR)
         style.configure(self.tree_tag_even, background=ROW_ALT_BG)
 
-        # Estilo para Combobox (para combinar com o visual)
+        
         style.configure("TCombobox",
                         fieldbackground="white",
                         background=BG_COLOR,
