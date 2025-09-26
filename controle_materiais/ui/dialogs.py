@@ -21,7 +21,9 @@ class MaterialDialog(tk.Toplevel):
         self.material = material
         self.feedback_callback = feedback_callback
         self.title(titulo)
-        self.geometry("500x400") # Aumentar um pouco o tamanho do diálogo
+        
+        
+        self.geometry("600x550")
         self.resizable(False, False)
         self.configure(bg=BG_COLOR)
         self.create_widgets()
@@ -34,12 +36,12 @@ class MaterialDialog(tk.Toplevel):
 
     def create_widgets(self):
         frame = tk.Frame(self, bg=BG_COLOR)
-        frame.pack(padx=25, pady=25, fill=tk.BOTH, expand=True) # Aumentar padding
+        frame.pack(padx=25, pady=25, fill=tk.BOTH, expand=True)
 
         label_opts = {"bg": BG_COLOR, "anchor": "w", "font": (FONT_FAMILY, 11), "fg": TEXT_COLOR}
         entry_opts = {"font": (FONT_FAMILY, 11), "relief": "flat", "bd": 2, "highlightbackground": BTN_SECONDARY, "highlightthickness": 1}
 
-        tk.Label(frame, text="Nome:", **label_opts).grid(row=0, column=0, sticky="w", pady=10, padx=5) # Aumentar pady
+        tk.Label(frame, text="Nome:", **label_opts).grid(row=0, column=0, sticky="w", pady=10, padx=5)
         self.entry_nome = tk.Entry(frame, **entry_opts)
         self.entry_nome.grid(row=0, column=1, sticky="ew", pady=10, padx=5)
 
@@ -53,23 +55,25 @@ class MaterialDialog(tk.Toplevel):
         self.entry_quantidade.grid(row=2, column=1, sticky="ew", pady=10, padx=5)
 
         tk.Label(frame, text="Descrição:", **label_opts).grid(row=3, column=0, sticky="nw", pady=10, padx=5)
-        self.entry_descricao = tk.Text(frame, height=7, font=(FONT_FAMILY, 11), relief="flat", bd=2, highlightbackground=BTN_SECONDARY, highlightthickness=1) # Aumentar altura
+        
+        self.entry_descricao = tk.Text(frame, height=10, font=(FONT_FAMILY, 11), relief="flat", bd=2, highlightbackground=BTN_SECONDARY, highlightthickness=1)
         self.entry_descricao.grid(row=3, column=1, sticky="ew", pady=10, padx=5)
 
         frame.columnconfigure(1, weight=1)
 
         btn_frame = tk.Frame(self, bg=BG_COLOR)
-        btn_frame.pack(pady=20) # Aumentar pady
+       
+        btn_frame.pack(pady=(10, 20)) 
 
         btn_salvar = tk.Button(btn_frame, text="Salvar", command=self.salvar,
                                bg=BTN_PRIMARY, fg="white", font=(FONT_FAMILY, 12, "bold"),
-                               activebackground="#1A5BBF", activeforeground="white",
+                               activebackground="#1A5BBF", activeforeground="white", # Corrigido activebackground para ser um tom mais escuro de BTN_PRIMARY
                                relief="flat", padx=25, pady=12, cursor="hand2", borderwidth=0)
         btn_salvar.pack(side=tk.LEFT, padx=15, ipadx=10, ipady=5)
 
         btn_cancelar = tk.Button(btn_frame, text="Cancelar", command=self.destroy,
                                  bg=BTN_SECONDARY, fg="white", font=(FONT_FAMILY, 12, "bold"),
-                                 activebackground="#5A6268", activeforeground="white",
+                                 activebackground="#5A6268", activeforeground="white", # Corrigido activebackground para ser um tom mais escuro de BTN_SECONDARY
                                  relief="flat", padx=25, pady=12, cursor="hand2", borderwidth=0)
         btn_cancelar.pack(side=tk.LEFT, padx=15, ipadx=10, ipady=5)
 
