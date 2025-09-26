@@ -18,7 +18,7 @@ BTN_SECONDARY = "#6C757D"     # Cinza mais escuro
 HEADER_BG = "#0056B3"         # Azul escuro para cabeçalho
 HEADER_FG = "white"
 ROW_ALT_BG = "#E9ECEF"        # Cinza claro para linhas alternadas
-FONT_FAMILY = "Segoe UI"      # Ou "Roboto" se disponível
+FONT_FAMILY = "Segoe UI"      
 TEXT_COLOR = "#343A40"        # Cor de texto principal
 
 class App(tk.Tk):
@@ -69,11 +69,11 @@ class App(tk.Tk):
 
 
     def create_widgets(self):
-        # Frame superior para título e logo
+      
         header_frame = tk.Frame(self, bg=BG_COLOR)
         header_frame.pack(pady=15, fill=tk.X)
 
-        # Espaço para o logo (à esquerda do título)
+        
         self.logo_image = None
         try:
             original_image = Image.open('controle_materiais/ui/logo.png')
@@ -92,14 +92,14 @@ class App(tk.Tk):
         titulo.pack(side=tk.LEFT, anchor=tk.W)
 
 
-        # Barra de filtros (frame superior)
+        
         filtro_frame = tk.Frame(self, bg=BG_COLOR)
-        filtro_frame.pack(pady=15, fill=tk.X, padx=20) # Aumentar pady
+        filtro_frame.pack(pady=15, fill=tk.X, padx=20) 
 
         # Nome filtro
         tk.Label(filtro_frame, text="Filtro Nome:", bg=BG_COLOR, fg=TEXT_COLOR, font=(FONT_FAMILY, 11)).pack(side=tk.LEFT)
         self.filtro_nome = tk.Entry(filtro_frame, width=30, font=(FONT_FAMILY, 11), relief="flat", bd=2, highlightbackground=BTN_SECONDARY, highlightthickness=1)
-        self.filtro_nome.pack(side=tk.LEFT, padx=10) # Aumentar padx
+        self.filtro_nome.pack(side=tk.LEFT, padx=10) 
 
         # Categoria filtro
         tk.Label(filtro_frame, text="Filtro Categoria:", bg=BG_COLOR, fg=TEXT_COLOR, font=(FONT_FAMILY, 11)).pack(side=tk.LEFT, padx=(25,0)) # Aumentar padx
