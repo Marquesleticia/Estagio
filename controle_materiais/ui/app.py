@@ -30,7 +30,7 @@ class App(ctk.CTk): # Mudar para ctk.CTk
     def __init__(self):
         super().__init__()
         self.title("Gerenciamento de Estoque")
-        self.geometry("1050x800") 
+        self.geometry("1090x990") 
 
         # ctk.CTk não usa iconbitmap diretamente, mas você pode definir um ícone da janela
         # self.iconbitmap("controle_materiais/ui/logo.ico") 
